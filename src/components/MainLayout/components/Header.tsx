@@ -1,5 +1,5 @@
 import React from 'react';
-import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -7,8 +7,8 @@ import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import Cart from "components/MainLayout/components/Cart";
-import {Link} from 'react-router-dom';
+import Cart from 'components/MainLayout/components/Cart';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -23,9 +23,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     homeLink: {
       color: 'white',
-      textDecoration: 'none'
-    }
-  }),
+      textDecoration: 'none',
+    },
+  })
 );
 
 export default function Header() {
@@ -43,25 +43,27 @@ export default function Header() {
   };
 
   return (
-    <AppBar position="relative">
+    <AppBar position='relative'>
       <Toolbar>
-        <Typography variant="h6" className={classes.title}>
-          <Link className={classes.homeLink} to="/">My Store!</Link>
+        <Typography variant='h6' className={classes.title}>
+          <Link className={classes.homeLink} to='/'>
+            My Toys!
+          </Link>
         </Typography>
 
         {auth && (
           <div>
             <IconButton
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
+              aria-label='account of current user'
+              aria-controls='menu-appbar'
+              aria-haspopup='true'
               onClick={handleMenu}
-              color="inherit"
+              color='inherit'
             >
-              <AccountCircle/>
+              <AccountCircle />
             </IconButton>
             <Menu
-              id="menu-appbar"
+              id='menu-appbar'
               anchorEl={anchorEl}
               anchorOrigin={{
                 vertical: 'top',
@@ -75,12 +77,24 @@ export default function Header() {
               open={open}
               onClose={handleClose}
             >
-              <MenuItem component={Link} to="/admin/orders" onClick={handleClose}>Manage orders</MenuItem>
-              <MenuItem component={Link} to="/admin/products" onClick={handleClose}>Manage products</MenuItem>
+              <MenuItem
+                component={Link}
+                to='/admin/orders'
+                onClick={handleClose}
+              >
+                Manage orders
+              </MenuItem>
+              <MenuItem
+                component={Link}
+                to='/admin/products'
+                onClick={handleClose}
+              >
+                Manage products
+              </MenuItem>
             </Menu>
           </div>
         )}
-        <Cart/>
+        <Cart />
       </Toolbar>
     </AppBar>
   );

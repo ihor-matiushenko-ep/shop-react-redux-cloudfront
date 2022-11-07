@@ -19,11 +19,14 @@ export default function Cart() {
           }
         }
     ).then(({ data: { data: { cart } } }) => {
+      console.log('cart',cart);
       dispatch(updateFromApi(cart))
     });
   }, [dispatch]);
   const cartItems = useSelector(selectCartItems);
   const badgeContent = cartItems.length || undefined;
+
+  
 
   return (
     <IconButton

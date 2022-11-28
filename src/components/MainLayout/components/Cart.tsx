@@ -12,7 +12,7 @@ export default function Cart() {
   const dispatch = useDispatch();
   useEffect(() => {
     axios
-      .get(`${API_PATHS.cart}/cart/`, {
+      .get(`${API_PATHS.bff}/cart/`, {
         headers: {
           Authorization: `Basic ${localStorage.getItem('authorization_token')}`,
         },
